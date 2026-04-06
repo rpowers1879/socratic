@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socratic AI — Privacy Policy</title>
+    <meta name="description" content="The AI that never gives advice. Speak or type what's on your mind and discover clarity through the ancient art of Socratic questioning.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #050E09;
+            --bg-dark: #0A1A10;
+            --bg-card: #0F2418;
+            --bg-card-hover: #132E1D;
+            --green-accent: #1B4D3E;
+            --green-bright: #2ECC71;
+            --green-mint: #4AEAB1;
+            --green-muted: #1A6B4C;
+            --text-primary: #E8F0EC;
+            --text-secondary: #8FA89A;
+            --text-muted: #5C7A6B;
+            --gold: #C4A265;
+            --gold-light: #D4B97A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* NOISE TEXTURE OVERLAY */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            background: rgba(5, 14, 9, 0.8);
+            border-bottom: 1px solid rgba(27, 77, 62, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+        }
+
+        .nav-logo-placeholder {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--green-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--green-mint);
+        }
+
+        .nav-logo span {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.03em;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--green-mint);
+        }
+
+        .nav-cta {
+            padding: 0.6rem 1.5rem;
+            background: var(--green-accent);
+            color: var(--text-primary) !important;
+            border-radius: 8px;
+            font-weight: 500 !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--green-muted) !important;
+            transform: translateY(-1px);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(ellipse, rgba(27, 77, 62, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-socrates {
+            width: 180px;
+            height: 180px;
+            margin-bottom: 2.5rem;
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 0 40px rgba(74, 234, 177, 0.1));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .hero-socrates-placeholder {
+            width: 180px;
+            height: 180px;
+            margin-bottom: 2.5rem;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--bg-card-hover) 0%, var(--bg-card) 100%);
+            border: 2px solid var(--green-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: var(--green-mint);
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 0 40px rgba(74, 234, 177, 0.1));
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .accent {
+            color: var(--green-mint);
+        }
+
+        .hero-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.35rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            max-width: 500px;
+        }
+
+        .hero-attribution {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .hero-tagline {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 550px;
+            margin-bottom: 3rem;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.25rem;
+            background: var(--green-accent);
+            color: var(--text-primary);
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-primary:hover {
+            background: var(--green-muted);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(27, 77, 62, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.25rem;
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid rgba(27, 77, 62, 0.4);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 400;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--green-mint);
+            color: var(--green-mint);
+        }
+
+        /* HOW IT WORKS */
+        .how-it-works {
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--green-mint);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 3.25rem);
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.01em;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin: 0 auto 4rem;
+            line-height: 1.7;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .step {
+            padding: 2.5rem 2rem;
+            background: var(--bg-card);
+            border: 1px solid rgba(27, 77, 62, 0.2);
+            border-radius: 16px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--green-mint), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .step:hover::before {
+            opacity: 1;
+        }
+
+        .step:hover {
+            transform: translateY(-4px);
+            border-color: rgba(27, 77, 62, 0.4);
+            background: var(--bg-card-hover);
+        }
+
+        .step-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--green-accent);
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+
+        .step h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .step p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 8rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 2.5rem;
+            background: var(--bg-card);
+            border: 1px solid rgba(27, 77, 62, 0.15);
+            border-radius: 16px;
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(27, 77, 62, 0.35);
+            transform: translateY(-3px);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(27, 77, 62, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* THINKING STYLES */
+        .styles-section {
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .styles-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.25rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .style-card {
+            padding: 2rem 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid rgba(27, 77, 62, 0.2);
+            border-radius: 14px;
+            transition: all 0.4s ease;
+            cursor: default;
+        }
+
+        .style-card:hover {
+            border-color: var(--green-mint);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(27, 77, 62, 0.15);
+        }
+
+        .style-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .style-card p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        /* QUOTE SECTION */
+        .quote-section {
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .quote-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(196, 162, 101, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .big-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            color: var(--gold);
+            max-width: 650px;
+            margin: 0 auto 1rem;
+            line-height: 1.5;
+        }
+
+        .big-quote-attribution {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        /* PRICING */
+        .pricing {
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .pricing-cards {
+            display: flex;
+            gap: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .pricing-card {
+            flex: 1;
+            max-width: 320px;
+            padding: 2.5rem 2rem;
+            background: var(--bg-card);
+            border: 1px solid rgba(27, 77, 62, 0.2);
+            border-radius: 16px;
+            transition: all 0.4s ease;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--green-mint);
+            position: relative;
+        }
+
+        .pricing-card.featured::before {
+            content: 'BEST VALUE';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.3rem 1rem;
+            background: var(--green-mint);
+            color: var(--bg-deep);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            border-radius: 20px;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .pricing-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .pricing-period {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-trial {
+            color: var(--green-mint);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.4rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--green-mint);
+            font-weight: 600;
+        }
+
+        .pricing-card .btn-primary {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* CTA SECTION */
+        .cta {
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 400px;
+            background: radial-gradient(ellipse at bottom, rgba(27, 77, 62, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+
+        .cta p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 3rem 3rem 2rem;
+            border-top: 1px solid rgba(27, 77, 62, 0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .footer-left span {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-secondary);
+        }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* PAGE STYLES (Privacy, Terms, Support) */
+        .page-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 10rem 2rem 6rem;
+        }
+
+        .page-content h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-content .page-date {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 3rem;
+        }
+
+        .page-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .page-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.75;
+            margin-bottom: 1rem;
+        }
+
+        .page-content a {
+            color: var(--green-mint);
+        }
+
+        .page-content ul {
+            list-style: none;
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+        }
+
+        .page-content ul li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.75;
+            padding: 0.2rem 0;
+        }
+
+        .page-content ul li::before {
+            content: '—';
+            color: var(--green-accent);
+            margin-right: 0.75rem;
+        }
+
+        /* SUPPORT PAGE */
+        .support-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(27, 77, 62, 0.2);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .support-email {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--green-mint);
+            text-decoration: none;
+            display: inline-block;
+            margin: 1rem 0;
+        }
+
+        .support-email:hover {
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1.25rem;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .styles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pricing-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links a:not(.nav-cta) {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .styles-grid {
+                grid-template-columns: 1fr;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                padding: 0 1rem;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* PAGE VISIBILITY — only show active page */
+        
+        
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="/" class="nav-logo">
+            <div style="width: 36px; height: 36px; border-radius: 8px; background: var(--green-accent); display: flex; align-items: center; justify-content: center; font-family: Cormorant Garamond, serif; font-weight: 700; font-size: 1.2rem; color: var(--green-mint);">S</div>
+            <span>Socratic AI</span>
+        </a>
+        <div class="nav-links">
+            <a href="/#features">Features</a>
+            <a href="/#pricing">Pricing</a>
+            <a href="/support">Support</a>
+            <a href="#" class="nav-cta">Download</a>
+        </div>
+    </nav>
+
+
+
+    <!-- PRIVACY POLICY PAGE -->
+    <div id="page-privacy">
+        <div class="page-content">
+            <h1>Privacy Policy</h1>
+            <p class="page-date">Effective: March 2026</p>
+
+            <p>Socratic AI ("we," "our," "us") is operated by Trudge the Road LLC. We respect your privacy and are committed to protecting your personal information. This policy explains what data we collect, how we use it, and your rights.</p>
+
+            <h2>What We Collect</h2>
+            <ul>
+                <li>Your first name (provided during onboarding)</li>
+                <li>Conversation data (messages exchanged with the AI)</li>
+                <li>Journal entries and saved insights</li>
+                <li>App usage data (session count, features used)</li>
+                <li>Subscription status through RevenueCat</li>
+            </ul>
+
+            <h2>How We Use Your Data</h2>
+            <p>Your conversation data is sent to the Anthropic Claude API to generate Socratic responses. We do not use your conversations for training AI models. Your data is used solely to provide and improve the Socratic AI experience.</p>
+
+            <h2>Data Storage</h2>
+            <p>For guest users, all data is stored locally on your device. If you create an account, data may be stored on our servers to enable syncing across devices. Conversations are processed through the Anthropic Claude API in real-time and are not stored by Anthropic beyond the duration of the API request.</p>
+
+            <h2>Third-Party Services</h2>
+            <ul>
+                <li>Anthropic Claude API — processes conversations to generate questions</li>
+                <li>RevenueCat — manages subscription status</li>
+                <li>Apple — processes payments for subscriptions</li>
+            </ul>
+
+            <h2>What We Do Not Do</h2>
+            <ul>
+                <li>We do not sell your data to third parties</li>
+                <li>We do not use your data for advertising</li>
+                <li>We do not share your conversations with anyone</li>
+            </ul>
+
+            <h2>Your Rights</h2>
+            <p>You can delete all your data at any time from the Profile screen in the app. You can also contact us to request data deletion. Upon deletion, all conversations, insights, and personal information are permanently removed.</p>
+
+            <h2>Contact</h2>
+            <p>For privacy questions, contact us at <a href="mailto:support@trudgetheroadllc.com">support@trudgetheroadllc.com</a></p>
+        </div>
+    </div>
+
+
+
+    <!-- FOOTER (shown on all pages) -->
+    <footer>
+        <div class="footer-left">
+            <div style="width: 28px; height: 28px; border-radius: 6px; background: var(--green-accent); display: flex; align-items: center; justify-content: center; font-family: Cormorant Garamond, serif; font-weight: 700; font-size: 0.9rem; color: var(--green-mint);">S</div>
+            <span>Socratic AI</span>
+        </div>
+        <div class="footer-links">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/support">Support</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Trudge the Road LLC. All rights reserved.</p>
+    </footer>
+
+
+</body>
+</html>
